@@ -7,7 +7,7 @@
 }
 
 body {
-  /* TODO */
+  background: linear-gradient(to right, yellow, orange)
 }
 
 input {
@@ -15,7 +15,11 @@ input {
 }
 
 .search-container {
- /* TODO */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-sizing: border-box;
+ margin-top: 40vh;
 }
 .search-container input,
 .search-container .suggestions {
