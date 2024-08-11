@@ -6,8 +6,9 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	const searchTerm = str.toLowerCase();
+	const searchTerm = str.toLowerCase(); // The string is converted to lower case
 
+  // the input string is used to filter the fruits from the fruit list
   if (searchTerm.length > 0) {
     results = fruit.filter(item => item.toLowerCase().includes(searchTerm));
   }
@@ -16,6 +17,8 @@ function search(str) {
 }
 
 function searchHandler(e) {
+  // this function is triggered upon typing and the typed
+  // value is used to search and filter the fruit list
 	const inputVal = e.target.value;
   const results = search(inputVal);
   showSuggestions(results, inputVal);
@@ -24,10 +27,13 @@ function searchHandler(e) {
 function showSuggestions(results, inputVal) {
 	suggestions.innerHTML = '';
 
+  // list items are created based on the input values
   if (results.length > 0) {
     results.forEach(item => {
       const li = document.createElement('li');
       li.textContent = item;
+      // list items are highlighted and de-highlighted by moving the
+      // mouse on the list.
       li.addEventListener('mouseover', () => {
 				li.classList.add('highlight');
 			});
@@ -41,6 +47,9 @@ function showSuggestions(results, inputVal) {
 }
 
 function useSuggestion(e) {
+  // the value appearing in the search bar is the same as
+  // the fruit name the user selects by clicking the name
+  // from the suggested list
 	if (e.target.tagName === 'LI') {
     input.value = e.target.textContent;
     suggestions.innerHTML = '';
