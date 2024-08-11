@@ -16,12 +16,21 @@ function search(str) {
 }
 
 function searchHandler(e) {
-	// TODO
+	const inputVal = e.target.value;
+  const results = search(inputVal);
+  showSuggestions(results, inputVal);
 }
 
 function showSuggestions(results, inputVal) {
+	suggestions.innerHTML = '';
 
-	// TODO
+  if (results.length > 0) {
+    results.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      suggestions.appendChild(li);
+    });
+  }
 }
 
 function useSuggestion(e) {
