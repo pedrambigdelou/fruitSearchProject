@@ -41,7 +41,10 @@ function showSuggestions(results, inputVal) {
 }
 
 function useSuggestion(e) {
-	// TODO
+	if (e.target.tagName === 'LI') {
+    input.value = e.target.textContent;
+    suggestions.innerHTML = '';
+  }
 }
 
 input.addEventListener('keyup', searchHandler);
