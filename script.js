@@ -6,7 +6,11 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 
-	// TODO
+	const searchTerm = str.toLowerCase();
+
+  if (searchTerm.length > 0) {
+    results = fruit.filter(item => item.toLowerCase().includes(searchTerm));
+  }
 
 	return results;
 }
