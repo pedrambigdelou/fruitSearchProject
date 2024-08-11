@@ -28,9 +28,16 @@ function showSuggestions(results, inputVal) {
     results.forEach(item => {
       const li = document.createElement('li');
       li.textContent = item;
+      li.addEventListener('mouseover', () => {
+				li.classList.add('highlight');
+			});
+			li.addEventListener('mouseout', () => {
+				li.classList.remove('highlight');
+			});
       suggestions.appendChild(li);
     });
   }
+
 }
 
 function useSuggestion(e) {
